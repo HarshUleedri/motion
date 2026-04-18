@@ -2,8 +2,7 @@ import { Contact, Home, Menu, SidebarClose, User } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { AnimatePresence, motion } from "motion/react";
-import { delay } from "motion";
+import { motion } from "motion/react";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
