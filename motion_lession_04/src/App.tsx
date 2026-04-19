@@ -1,10 +1,4 @@
-import {
-  useMotionValue,
-  useMotionValueEvent,
-  useScroll,
-  motion,
-  useTransform,
-} from "motion/react";
+import { useScroll, motion, useTransform } from "motion/react";
 import Card from "./components/Card";
 import { useRef } from "react";
 
