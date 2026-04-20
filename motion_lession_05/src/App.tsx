@@ -97,7 +97,7 @@ const App = () => {
         <motion.div
           layoutId={current.title}
           ref={containerRef}
-          className="fixed h-[500px] overflow-y-auto overscroll-contain z-20 p-4 rounded  space-y-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-white"
+          className="fixed h-125 overflow-y-auto overscroll-contain z-20 p-4 rounded  space-y-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-white"
         >
           <motion.img
             layoutId={`card-img-${current.title}`}
