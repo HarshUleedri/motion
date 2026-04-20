@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card, { type item } from "./component/Card";
 import UseOutsideClick from "./hooks/useOutsideClick";
 import { motion } from "motion/react";
@@ -65,6 +65,18 @@ const App = () => {
   const [current, setCurrent] = useState<item | null>(null);
 
   const containerRef = UseOutsideClick(() => setCurrent(null));
+
+  useEffect(() => {
+    if (current) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [current]);
   return (
     <div className=" max-w-xl  min-h-screen  mx-auto py-20">
       {current && (
@@ -85,7 +97,7 @@ const App = () => {
         <motion.div
           layoutId={current.title}
           ref={containerRef}
-          className="fixed h-[500px] z-20 p-4 rounded  space-y-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-white"
+          className="fixed h-[500px] overflow-y-auto overscroll-contain z-20 p-4 rounded  space-y-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-white"
         >
           <motion.img
             layoutId={`card-img-${current.title}`}
