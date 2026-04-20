@@ -1,8 +1,29 @@
 import { useScroll, motion, useTransform } from "motion/react";
 import Card from "./components/Card";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import Lenis from "lenis";
 
 const App = () => {
+  //lenis smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.1,
+      duration: 1.5,
+      smoothWheel: true,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   const contents: {
     icon: string;
     subText: string;
